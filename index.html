@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dois Irmãos - Limpeza Profissional</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:#0d0d0d;
+color:white;
+}
+
+
+
+header{
+background:rgba(0,0,0,0.9);
+padding:20px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+backdrop-filter:blur(10px);
+}
+
+header h1{
+color:#00ff44;
+font-size:22px;
+}
+
+
+
+.menu{
+display:flex;
+gap:15px;
+background:rgba(255,255,255,0.05);
+padding:10px 20px;
+border-radius:50px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px rgba(0,255,68,0.2);
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+padding:8px 18px;
+border-radius:30px;
+transition:0.3s;
+}
+
+.menu a:hover{
+background:#00ff44;
+color:black;
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,255,68,0.4);
+}
+
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+url("img/logo.jpg");
+background-size:cover;
+background-position:center;
+position:relative;
+overflow:hidden;
+}
+
+
+.hero-content{
+animation:fadeUp 1.2s ease forwards;
+opacity:0;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero h2{
+font-size:3.5rem;
+color:#00ff44;
+text-shadow:0 0 20px #00ff44;
+}
+
+.hero p{
+margin-top:20px;
+font-size:1.3rem;
+color:#ddd;
+}
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:18px 40px;
+background:#00ff44;
+color:black;
+font-weight:700;
+border-radius:50px;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 0 20px #00ff44;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px #00ff44;
+}
+
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+color:#00ff44;
+font-size:2.5rem;
+}
+
+
+.servicos{
+background:linear-gradient(to bottom,#0d0d0d,#111);
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:2.8rem;
+color:#00ff44;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#aaa;
+font-size:1.1rem;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(0,255,68,0.15);
+padding:35px;
+border-radius:20px;
+text-align:center;
+transition:0.4s;
+backdrop-filter:blur(10px);
+position:relative;
+overflow:hidden;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 0.8s ease forwards;
+}
+
+.card:nth-child(1){animation-delay:0.1s;}
+.card:nth-child(2){animation-delay:0.2s;}
+.card:nth-child(3){animation-delay:0.3s;}
+.card:nth-child(4){animation-delay:0.4s;}
+
+.card:hover{
+transform:translateY(-10px);
+border:1px solid #00ff44;
+box-shadow:0 15px 40px rgba(0,255,68,0.2);
+}
+
+.icon{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.card h3{
+color:#00ff44;
+margin-bottom:15px;
+}
+
+.card p{
+color:#ccc;
+font-size:0.95rem;
+line-height:1.6;
+}
+
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+
+.before-after{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+gap:40px;
+}
+
+.pair{
+background:#1a1a1a;
+padding:20px;
+border-radius:12px;
+}
+
+.pair h3{
+color:#00ff44;
+margin-bottom:15px;
+text-align:center;
+}
+
+.images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.images img{
+width:100%;
+border-radius:10px;
+}
+
+
+
+.contact{
+text-align:center;
+}
+
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#777;
+}
+
+
+
+.instagram-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+align-items:center;
+gap:10px;
+padding:14px 22px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+color:white;
+background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.instagram-btn svg{
+width:20px;
+height:20px;
+}
+
+.instagram-btn:hover{
+transform:translateY(-4px) scale(1.03);
+}
+
+
+@keyframes pulse{
+0%{
+box-shadow:0 0 0 0 rgba(0,255,68,0.7);
+}
+70%{
+box-shadow:0 0 0 15px rgba(0,255,68,0);
+}
+100%{
+box-shadow:0 0 0 0 rgba(0,255,68,0);
+}
+}
+
+
+
+@media (max-width: 768px) {
+
+header{
+flex-direction:column;
+gap:15px;
+padding:15px;
+}
+
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#00ff44;
+}
+
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:#00ff44;
+}
+
+
+@media (max-width:768px) {
+
+.menu{
+position:absolute;
+top:80px;
+right:20px;
+background:#111;
+flex-direction:column;
+padding:20px;
+border-radius:10px;
+display:none;
+box-shadow:0 0 20px rgba(0,255,68,0.3);
+}
+
+.menu a{
+padding:10px 0;
+}
+
+.menu-toggle{
+display:block;
+}
+
+}
+
+}
+
+.fundo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.fundo img{
+width:70px;
+height:auto;
+}
+
+.fundo span{
+color:#00ff44;
+font-size:22px;
+font-weight:700;
+}
+
+.antes-depois{
+padding:120px 8%;
+background:#111;
+}
+
+.compare-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.compare-item{
+text-align:center;
+cursor:pointer;
+}
+
+.image-wrapper{
+position:relative;
+width:100%;
+aspect-ratio: 4 / 3; 
+overflow:hidden;
+border-radius:20px;
+}
+
+.image-wrapper img{
+width:100%;
+height:100%;
+object-fit:cover; 
+position:absolute;
+top:0;
+left:0;
+transition:opacity 0.5s ease;
+}
+
+.image-wrapper img.after{
+opacity:0;
+}
+
+.image-wrapper img.active{
+opacity:1;
+position:relative;
+}
+
+.compare-item h3{
+margin-top:15px;
+color:#00ff44;
+}
+
+
+@media (max-width:768px){
+.antes-depois{
+padding:80px 5%;
+}
+}
+
+
+.contact-section{
+padding:100px 20px;
+background:#0b0b0b;
+text-align:center;
+}
+
+.contact-container{
+max-width:700px;
+margin:0 auto;
+}
+
+.contact-container h2{
+font-size:34px;
+margin-bottom:10px;
+color:#00ff88;
+}
+
+.sub{
+color:#aaa;
+margin-bottom:40px;
+font-size:18px;
+}
+
+.contact-actions{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.whatsapp-btn{
+padding:16px 35px;
+border-radius:40px;
+background:#00ff88;
+color:#000;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+transform:translateY(-3px);
+opacity:0.9;
+}
+
+.phone{
+color:#ccc;
+font-size:18px;
+letter-spacing:1px;
+}
+
+@media(max-width:600px){
+.contact-container h2{
+font-size:26px;
+}
+
+.contact-actions{
+flex-direction:column;
+gap:20px;
+}
+}
+
+#localizacao{
+padding:100px 10%;
+}
+
+.map-container{
+width:100%;
+height:450px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+border:1px solid #1a1a1a;
+}
+
+.map-container iframe{
+width:100%;
+height:100%;
+border:0;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.map-container{
+height:300px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="fundo">
+  <img src="img/fundo.png" alt="Logo Dois Irmãos">
+</div>
+  <nav class="menu" id="menu">
+    <a href="#servicos">Serviços</a>
+    <a href="#antesdepois">Antes & Depois</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Sua Obra Pode Ser a Próxima</h2>
+    <p>Especialistas em limpeza pós-obra, pisos e áreas externas.</p>
+    <a class="btn" href="https://wa.me/5519988221175">Agende Agora</a>
+  </div>
+</section>
+
+<section id="servicos" class="servicos">
+  <div class="section-title">
+    <h2>Nossos Serviços</h2>
+    <p>Soluções profissionais para cada tipo de necessidade</p>
+  </div>
+
+  <div class="services">
+
+    <div class="card">
+      <div class="icon">🚗</div>
+      <h3>Serviço de Lavagem em Domicílio</h3>
+      <p>Lavagem completa de carros a domicílio, com praticidade e qualidade.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧱</div>
+      <h3>Pós-Obra</h3>
+      <p>Remoção completa de resíduos e sujeira pesada após construções e reformas.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧼</div>
+      <h3>Pisos</h3>
+      <p>Limpeza profunda e revitalização de pisos encardidos e manchados.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚿</div>
+      <h3>Pedras & Calçadas</h3>
+      <p>Lavagem e recuperação profissional de áreas externas.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛋️</div>
+      <h3>Estofados</h3>
+      <p>Higienização técnica de sofás, bancos e estofados em geral.</p>
+    </div>
+
+  </div>
+</section>
+<section id="antesdepois" class="antes-depois">
+  <div class="section-title">
+    <h2>Antes & Depois</h2>
+    <p>Toque na imagem para ver o resultado</p>
+  </div>
+
+  <div class="compare-grid">
+
+    <div class="compare-item" onclick="toggle(this)">
+      <div class="image-wrapper">
+        <img src="img/carro-antes.jpeg" class="before active">
+        <img src="img/carro-depois.jpeg" class="after">
+      </div>
+      <h3>Limpeza de Carros</h3>
+    </div>
+
+    <!-- ITEM -->
+    <div class="compare-item" onclick="toggle(this)">
+      <div class="image-wrapper">
+        <img src="img/banheiro-antes.jpeg" class="before active">
+        <img src="img/banheiro-depois.jpeg" class="after">
+      </div>
+      <h3>Limpeza Pós-Obra</h3>
+    </div>
+
+    <div class="compare-item" onclick="toggle(this)">
+      <div class="image-wrapper">
+        <img src="img/sofa-antes.jpeg" class="before active">
+        <img src="img/sofa-depois.jpeg" class="after">
+      </div>
+      <h3>Higienização de Sofá</h3>
+    </div>
+
+    <div class="compare-item" onclick="toggle(this)">
+      <div class="image-wrapper">
+        <img src="img/calcada-antes.jpeg" class="before active">
+        <img src="img/calcada-depois.jpeg" class="after">
+      </div>
+      <h3>Limpeza de Calçada</h3>
+    </div>
+
+  </div>
+</section>
+
+<section id="localizacao">
+
+<div class="section-title">
+<h2>Onde Estamos</h2>
+</div>
+
+<div class="map-container">
+
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.1232690380357!2d-47.1866051!3d-22.7236592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c895476b4a8f73%3A0x1eb10899c9e6e05f!2sD%C3%B3is%20Irm%C3%A3os%20lava%20car%20%26%20estofados.%20Lavamos%20seu%20carro%20na%20sua%20resid%C3%AAncia.!5e0!3m2!1spt-BR!2sbr!4v1772478819398!5m2!1spt-BR!2sbr"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</div>
+
+</section>
+
+<section id="contato" class="contact-section">
+
+<div class="contact-container">
+
+    <h2>Solicite um Orçamento</h2>
+    <p class="sub">Atendimento rápido e profissional</p>
+
+    <div class="contact-actions">
+        <a class="whatsapp-btn" href="https://wa.me/5519988221175">
+            Falar no WhatsApp
+        </a>
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Dois Irmãos Lava Car & Estofados - Sistema Leva e Traz</p>
+</footer>
+
+<a class="instagram-btn" href="https://instagram.com/esteticaautomotivadoisirmaos" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5C18.22 4 20 5.78 20 7.75v8.5c0 1.97-1.78 3.75-3.75 3.75h-8.5C5.78 20 4 18.22 4 16.25v-8.5C4 5.78 5.78 4 7.75 4zm4.25 3.5A4.75 4.75 0 1 0 16.75 12 4.76 4.76 0 0 0 12 7.5zm0 2A2.75 2.75 0 1 1 9.25 12 2.75 2.75 0 0 1 12 9.5zM17.5 6.25a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25z"/>
+  </svg>
+  Instagram
+</a>
+
+<script>
+function toggle(element){
+  const before = element.querySelector(".before");
+  const after = element.querySelector(".after");
+
+  if(before.classList.contains("active")){
+    before.classList.remove("active");
+    after.classList.add("active");
+  } else {
+    after.classList.remove("active");
+    before.classList.add("active");
+  }
+}
+</script>
+
+</body>
+</html>
